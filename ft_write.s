@@ -1,7 +1,7 @@
-global _ft_read
+global _ft_write
 extern ___error
-_ft_read :
-	mov rax, 0x2000003
+_ft_write :
+	mov rax, 0x2000004
 	syscall
 	cmp rax, 0 ; syscall met RAX a 0 si error
 	jl error
@@ -11,5 +11,5 @@ error :
 	mov rbx, rax ; stock valeur de retour du syscall dans RAX
 	call ___error ; renvoie un pointeur sur errno
 	mov [rax], rbx ; Met le contenue de rbx (valeur de retour du syscall) dans errno
-	mov rax, -1 ; renvoie -1 pour le retour de read
+	mov rax, -1 ; renvoie -1 pour le retour de write
 	ret

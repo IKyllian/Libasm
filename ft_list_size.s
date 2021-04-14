@@ -5,9 +5,10 @@ _ft_list_size :
 	jmp loop
 
 loop :
-	cmp byte[rdi + rax], 0
+	cmp rdi, 0
 	je end
 	inc rax
+	mov rdi, [rdi + 8] ; system x64 (void*) = 8 bytes
 	jmp loop
 
 end :

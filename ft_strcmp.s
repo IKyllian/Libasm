@@ -7,9 +7,11 @@ _ft_strcmp :
 loop :
 	mov r8b, byte[rdi + rbx]
 	mov r9b, byte[rsi + rbx]
+	cmp r9b, 0
+	je end
 	cmp r8b, 0
 	je end
-	cmp r9b, r8b
+	cmp r8b, r9b
 	jne end
 	inc rbx
 	jmp loop
