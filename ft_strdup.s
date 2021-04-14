@@ -1,16 +1,14 @@
 global _ft_strdup
-extern malloc
+extern _ft_strlen
+extern _ft_strcpy
+extern _malloc
 _ft_strdup :
-	mov rbx, 0
-	call malloc
-	jmp loop
-
-loop :
-	mov r8b, byte[rdi + rbx]
-	mov byte[rax + rbx], r8b
-	cmp r8b, 0
-	je end
-	inc rbx
-	jmp loop
-end :
+	call _ft_strlen
+	inc rax
+	push rdi
+	mov rdi, rax
+	call _malloc
+	mov rdi, rax
+	pop rsi
+	call _ft_strcpy
 	ret

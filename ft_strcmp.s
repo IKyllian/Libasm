@@ -9,8 +9,6 @@ loop :
 	mov r9b, byte[rsi + rbx]
 	cmp r8b, 0
 	je end
-	cmp r9b, 0
-	je end
 	cmp r9b, r8b
 	jne end
 	inc rbx

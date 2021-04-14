@@ -1,1 +1,1 @@
-nasm -f macho64 ft_strdup.s && gcc ft_strdup.o main.c && ./a.out
+make && make run
