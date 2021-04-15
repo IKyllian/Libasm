@@ -1,7 +1,7 @@
 HEADER = libasm.h
 NAME = libasm.a
 MAIN = main.c
-SRCS = ft_strlen.s ft_strcmp.s ft_strcpy.s ft_strdup.s ft_write.s ft_read.s ft_list_size.s
+SRCS = ft_strlen.s ft_strcmp.s ft_strcpy.s ft_strdup.s ft_write.s ft_read.s ft_list_size.s ft_list_push_front.s
 
 OBJS = $(SRCS:.s=.o)
 
@@ -28,4 +28,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : clean fclean re all bonus
+.PHONY : clean fclean re all
