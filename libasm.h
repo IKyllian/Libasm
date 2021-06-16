@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   libasm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdelport <kdelport@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: kdelport <kdelport@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 11:06:46 by kdelport          #+#    #+#             */
-/*   Updated: 2021/04/15 11:37:14 by kdelport         ###   ########lyon.fr   */
+/*   Updated: 2021/06/16 16:21:37 by kdelport         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBASM_H
 # define LIBASM_H
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <unistd.h>
-#include <fcntl.h>
+# include <string.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <errno.h>
+# include <unistd.h>
+# include <fcntl.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
-	void *data;
-	struct s_list *next;
+	void			*data;
+	struct s_list	*next;
 }				t_list;
 
 size_t	ft_strlen(char const *str);
