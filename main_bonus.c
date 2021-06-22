@@ -1,19 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdelport <kdelport@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 10:30:48 by kdelport          #+#    #+#             */
-/*   Updated: 2021/06/22 10:20:03 by kdelport         ###   ########.fr       */
+/*   Created: 2021/06/22 10:09:14 by kdelport          #+#    #+#             */
+/*   Updated: 2021/06/22 10:14:20 by kdelport         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*elem;
+
+	elem = (t_list *)malloc(sizeof(*elem));
+	if (!elem)
+		return (NULL);
+	elem->data = content;
+	elem->next = NULL;
+	return (elem);
+}
+
+void print_list(t_list *lst)
+{
+	t_list *list;
+
+	list = lst;
+	if (!list)
+	{
+		printf("List NULL\n");
+		return ;
+	}
+	while (list)
+	{
+		printf("%i | ", (int)list->data);
+		list = list->next;
+	}
+	printf("\n");
+}
+
 int main(void)
 {
+	t_list *list;
 	char dest[50];
 	char scnd_dest[50];
 	char buffer[50];
@@ -99,6 +130,24 @@ int main(void)
 	printf("read    = %zi\n", read(21, buffer, 4));
 	printf("\033[1;32mErrno = %i\033[0;37m\n", errno);
 
+
+	printf("\033[1;36m------------ ft_list_size ------------\033[0;37m\n");
+	list = ft_lstnew((void *)0);
+	printf("ft_list_size = %i\n", ft_list_size(list));
+	print_list(list);
+	list->next = ft_lstnew((void *)30);
+	printf("ft_list_size = %i\n", ft_list_size(list));
+	print_list(list);
+
+
+	printf("\033[1;36m------------ ft_list_push_front ------------\033[0;37m\n");
+	printf("Value first node = %i\n", (int)list->data);
+	ft_list_push_front(&list, ft_lstnew((void *)50));
+	print_list(list);
+	printf("New list size = %i\n\n", ft_list_size(list));
+
+	ft_list_push_front(&list, NULL);
+	
 	close(fd);
 	close(fd2);
 	return (0);
