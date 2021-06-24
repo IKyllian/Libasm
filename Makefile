@@ -20,9 +20,6 @@ all : $(NAME)
 $(NAME) : $(OBJS) $(HEADER)
 	ar cr $(NAME) $(OBJS)
 
-# bonus : $(OBJS) $(OBJS_BONUS) $(HEADER)
-# 	ar cr $(NAME) $(OBJS) $(OBJS_BONUS)
-
 bonus : $(NAME) $(OBJS_BONUS) $(HEADER)
 	ar cr $(NAME) $(OBJS_BONUS)
 

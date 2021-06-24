@@ -6,7 +6,7 @@
 /*   By: kdelport <kdelport@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 10:30:48 by kdelport          #+#    #+#             */
-/*   Updated: 2021/06/22 10:20:03 by kdelport         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:39:18 by kdelport         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 int main(void)
 {
 	char dest[50];
-	char scnd_dest[50];
+	char dest2[50];
 	char buffer[50];
 	int fd;
 	int fd2;
 
 	fd = open("text.txt", O_RDONLY);
 	fd2 = open("text.txt", O_RDONLY);
-	
 	printf("\033[1;36m------------ ft_strlen ------------\033[0;37m\n");
 	printf("\033[1;34mSTR: Hello World\033[0;37m\n");
 	printf("ft_strlen = %lu\n", ft_strlen("Hello World"));
@@ -50,10 +49,10 @@ int main(void)
 	printf("\033[1;36m------------ ft_strcpy ------------\033[0;37m\n");
 	printf("\033[1;34mSTR: Hello World\033[0;37m\n");
 	printf("ft_strcpy = %s\n", ft_strcpy(dest, "Hello World"));
-	printf("strcpy    = %s\n", strcpy(scnd_dest, "Hello World"));
+	printf("strcpy    = %s\n", strcpy(dest2, "Hello World"));
 	printf("\033[1;34mSTR: \033[0;37m\n");
 	printf("ft_strcpy = %s\n", ft_strcpy(dest, ""));
-	printf("strcpy    = %s\n", strcpy(scnd_dest, ""));
+	printf("strcpy    = %s\n", strcpy(dest2, ""));
 
 
 	printf("\033[1;36m------------ ft_strdup ------------\033[0;37m\n");
@@ -87,8 +86,8 @@ int main(void)
 
 
 	printf("\033[1;36m------------ ft_read ------------\033[0;37m\n");
-	printf("ft_read = %zi - buffer = %s\n", ft_read(fd, buffer, 12), buffer);
-	printf("read    = %zi - buffer = %s\n", read(fd2, buffer, 12), buffer);
+	printf("ft_read = %zi\nbuffer = %s\n", ft_read(fd, buffer, 12), buffer);
+	printf("read    = %zi\nbuffer = %s\n", read(fd2, buffer, 12), buffer);
 	printf("\033[1;34mRead with an error\033[0;37m\n");
 	errno = 0;
 	printf("\033[1;32mErrno = %i\033[0;37m\n", errno);
